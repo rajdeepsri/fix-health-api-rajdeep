@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+const PORT = 4000;
+const cors = require("cors");
+
+app.use(cors(corsOptions));
 
 const doctors = [
   { id: 1, name: "Dr. Aarav Patel", expertise: "Cardiology", city: "Mumbai" },
@@ -179,7 +183,9 @@ const doctors = [
   { id: 50, name: "Dr. Vihan Reddy", expertise: "Dermatology", city: "Mumbai" },
 ];
 
-const PORT = 4000;
+const corsOptions = {
+  origin: "http://127.0.0.1:5173",
+};
 
 app.listen(PORT, () => {
   console.log(`API listening on PORT ${PORT} `);
